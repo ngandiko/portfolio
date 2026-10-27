@@ -1,8 +1,6 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   output: "export",
-  basePath: process.env.GITHUB_ACTIONS ? "/portfolio" : "",
   images: { unoptimized: true },
   devIndicators: false,
   turbopack: {
@@ -15,4 +13,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
