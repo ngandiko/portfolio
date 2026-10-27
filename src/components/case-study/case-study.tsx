@@ -5,6 +5,7 @@ import { CaseHero, NextProject } from "@/components/case-study/case-hero";
 import { CaseStudyNav } from "@/components/case-study/case-study-nav";
 import { CaseSection } from "@/components/case-study/case-section";
 import { Reveal } from "@/components/reveal";
+import { withBase } from "@/lib/site";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -143,7 +144,7 @@ export function CaseStudy({
                       <div className="flex items-center gap-3.5">
                         <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-sand">
                           <Image
-                            src={persona.image}
+                            src={withBase(persona.image)}
                             alt={`${persona.name} archetype`}
                             fill
                             sizes="48px"
@@ -230,7 +231,7 @@ export function CaseStudy({
                       <div key={wireframe.src} className="relative">
                         <div className="relative aspect-[597/1213]">
                           <Image
-                            src={wireframe.src}
+                            src={withBase(wireframe.src)}
                             alt={`${project.name} wireframe ${i + 1}`}
                             fill
                             sizes="(max-width: 640px) 30vw, 16vw"
@@ -352,7 +353,7 @@ function DesignCard({
         <div className="relative overflow-hidden rounded-2xl bg-white p-3 ring-1 ring-line/70">
           <div className="relative aspect-[597/1213]">
             <Image
-              src={screen.src}
+              src={withBase(screen.src)}
               alt={screen.label}
               fill
               sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 22vw"

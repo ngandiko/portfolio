@@ -5,7 +5,7 @@ import { Marquee } from "@/components/marquee";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { projects } from "@/lib/projects";
-import { site, tools } from "@/lib/site";
+import { site, tools, withBase } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Praneetha Gandikota — UI/UX Designer",
@@ -102,7 +102,7 @@ export default function HomePage() {
                 />
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-sand sm:aspect-[4/5]">
                   <Image
-                    src="/images/shared/portrait.jpg"
+                    src={withBase("/images/shared/portrait.jpg")}
                     alt="Praneetha Gandikota, UI/UX designer, photographed in Chicago"
                     fill
                     loading="eager"

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
-import { site } from "@/lib/site";
+import { site, withBase } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -94,7 +94,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-sand">
               <Image
-                src="/images/shared/portrait.jpg"
+                src={withBase("/images/shared/portrait.jpg")}
                 alt="Praneetha Gandikota, UI/UX designer"
                 fill
                 loading="eager"

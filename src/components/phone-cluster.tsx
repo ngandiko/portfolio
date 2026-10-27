@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBase } from "@/lib/site";
 
 type Screen = { src: string; alt: string };
 
@@ -16,7 +17,7 @@ export function Phone({
   return (
     <div className={`relative aspect-[597/1213] ${className}`}>
       <Image
-        src={screen.src}
+        src={withBase(screen.src)}
         alt={screen.alt}
         fill
         sizes={sizes}
