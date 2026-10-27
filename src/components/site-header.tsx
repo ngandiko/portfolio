@@ -39,7 +39,13 @@ export function SiteHeader() {
             href="/"
             className="group flex items-baseline gap-2.5"
             aria-label="Praneetha Gandikota — home"
-            onClick={() => setOpen(false)}
+            onClick={(e) => {
+              setOpen(false);
+              if (pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
           >
             <span className="font-serif text-[1.5rem] italic leading-none text-plum transition-transform duration-500 group-hover:-rotate-6">
               PG
@@ -67,6 +73,16 @@ export function SiteHeader() {
                   className={`rounded-full px-3.5 py-2 text-[0.8125rem] font-medium transition-colors ${
                     active ? "text-plum" : "text-ink-soft hover:text-ink"
                   }`}
+                  onClick={(e) => {
+                    if (item.href.includes("#") && pathname === "/") {
+                      const id = item.href.split("#")[1];
+                      const el = document.getElementById(id);
+                      if (el) {
+                        e.preventDefault();
+                        el.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }
+                  }}
                 >
                   {item.label}
                 </Link>
@@ -135,7 +151,17 @@ export function SiteHeader() {
                     <Link
                       href={item.href}
                       className="flex items-baseline justify-between py-5"
-                      onClick={() => setOpen(false)}
+                      onClick={(e) => {
+                        setOpen(false);
+                        if (item.href.includes("#") && pathname === "/") {
+                          const id = item.href.split("#")[1];
+                          const el = document.getElementById(id);
+                          if (el) {
+                            e.preventDefault();
+                            el.scrollIntoView({ behavior: "smooth" });
+                          }
+                        }
+                      }}
                     >
                       <span className="font-serif text-[2.25rem] leading-none tracking-[-0.02em]">
                         {item.label}
